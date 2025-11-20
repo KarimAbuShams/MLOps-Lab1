@@ -24,7 +24,7 @@ async def predict(file: UploadFile = File(...)):
         prediction = predict_image_class(image)
         return {"filename": file.filename, "prediction": prediction}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e
 
 @app.post("/resize")
 async def resize(
@@ -44,4 +44,4 @@ async def resize(
             "new_size": resized_image.size
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e)) from e

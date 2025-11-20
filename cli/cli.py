@@ -15,7 +15,7 @@ def predict(filepath):
         image = Image.open(filepath)
         result = predict_image_class(image)
         click.echo(f"La imagen es un: {result}")
-    except Exception as e:
+    except Exception as e: # pylint: disable=broad-exception-caught
         click.echo(f"Error leyendo la imagen: {e}")
 
 @cli.command()
@@ -28,7 +28,7 @@ def resize(filepath, width, height):
         image = Image.open(filepath)
         new_img = resize_image(image, width, height)
         click.echo(f"Imagen redimensionada a: {new_img.size}")
-    except Exception as e:
+    except Exception as e: # pylint: disable=broad-exception-caught
         click.echo(f"Error: {e}")
 
 if __name__ == '__main__':

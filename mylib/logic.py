@@ -1,7 +1,7 @@
 import random
 from PIL import Image
 
-def predict_image_class(image: Image.Image) -> str:
+def predict_image_class(_image: Image.Image) -> str: 
     """
     Predice la clase de una imagen.
     Según el PDF, la clase se elige aleatoriamente entre un set fijo.
